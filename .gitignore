@@ -1,0 +1,41 @@
+# Environment & Virtual Environments
+venv/
+.venv/
+env/
+ENV/
+*.env
+!.env.example
+
+# Dependencies & Node Modules
+node_modules/
+.npm/
+
+# Build & Output Caches
+.next/
+out/
+build/
+dist/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.coverage
+
+# Datasets & Heavy Images (Excluded to respect GitHub limits)
+backend/training/dataset/train/
+backend/training/dataset/valid/
+backend/training/dataset/test/
+backend/local_storage/
+backend/runs/temp/
+
+# Large Model Binaries (> 100MB)
+*.pt
+!.gitkeep
+
+# Operating System & IDE Files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log

@@ -1,0 +1,21 @@
+# Ignore Python compile objects
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore local virtual environments
+venv/
+.venv/
+env/
+.env
+
+# Ignore testing metrics
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Ignore databases and uploads
+grocery_sqlite.db
+local_storage/
+processed_frames/

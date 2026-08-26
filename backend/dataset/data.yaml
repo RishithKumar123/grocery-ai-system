@@ -1,0 +1,100 @@
+names:
+  0: Patanjali Amla Murabba
+  1: Patanjali Honey
+  2: Patanjali Cow Ghee
+  3: Patanjali Dant Kanti
+  4: Patanjali Aloe Vera Gel
+  5: Patanjali Wheat Atta
+  6: Patanjali Rice
+  7: Patanjali Moong Dal
+  8: Patanjali Chana Dal
+  9: Britannia Marie Gold
+  10: Britannia 50 50
+  11: Britannia NutriChoice
+  12: Britannia Milk Bikis
+  13: Britannia Bourbon
+  14: Britannia Treat
+  15: Parle G
+  16: Parle Krackjack
+  17: Parle Hide Seek
+  18: Parle Monaco
+  19: Parle 20 20
+  20: Nestle Maggi 2 Minute Noodles
+  21: Nestle Maggi Masala ae Magic
+  22: Nestle KitKat
+  23: Nestle Nescafe Classic
+  24: Nestle Everyday Dairy Whitener
+  25: Nestle Milkmaid
+  26: Nestle Munch
+  27: Patanjali Ketchup
+  28: Tata Salt
+  29: Tata Tea Gold
+  30: Tata Tea Premium
+  31: Tata Sampann Unpolished Toor Dal
+  32: Tata Sampann Chana Dal
+  33: Tata Gluco Plus
+  34: Dabur Honey
+  35: Dabur Chyawanprash
+  36: Dabur Red Paste
+  37: Dabur Gulabari
+  38: Dabur Hajmola
+  39: Aashirvaad Superior MP Atta
+  40: Aashirvaad Multigrain Atta
+  41: Sunfeast Dark Fantasy
+  42: Sunfeast Mom Magic
+  43: Sunfeast Yippee Noodles
+  44: ITC B Natural Juice
+  45: Fortune Sunlite Sunflower Oil
+  46: Fortune Kachi Ghani Mustard Oil
+  47: Fortune Soyabean Oil
+  48: Fortune Basmati Rice
+  49: Colgate Strong Teeth
+  50: Colgate MaxFresh
+  51: Dettol Original Soap
+  52: Dettol Antiseptic Liquid
+  53: Dettol Handwash
+  54: Himalaya Purifying Neem Face Wash
+  55: Himalaya Baby Powder
+  56: Horlicks Classic Malt
+  57: Boost Energy Drink
+  58: Cadbury Bournvita
+  59: Cadbury Dairy Milk
+  60: Cadbury 5 Star
+  61: Cadbury Perk
+  62: Cadbury Gems
+  63: Cadbury Oreo
+  64: Coca Cola Original
+  65: Pepsi Can
+  66: Sprite Bottle
+  67: Thums Up Can
+  68: Maaza Mango Drink
+  69: Frooti Mango Drink
+  70: Real Juice Mixed Fruit
+  71: Real Juice Orange
+  72: Kissan Fresh Tomato Ketchup
+  73: Kissan Mixed Fruit Jam
+  74: Surf Excel Easy Wash
+  75: Ariel Complete Detergent
+  76: Vim Dishwash Bar
+  77: Vim Liquid Gel
+  78: Rin Detergent Bar
+  79: Harpic Power Plus
+  80: Lizol Disinfectant Surface Cleaner
+  81: Dettol Disinfectant Spray
+  82: Saffola Gold Oil
+  83: Saffola Oats
+  84: Quaker Oats
+  85: Kellogg Corn Flakes
+  86: Kellogg Chocos
+  87: Lipton Green Tea
+  88: Red Label Tea
+  89: Taj Mahal Tea
+  90: Everest Garam Masala
+  91: MDH Deggi Mirch
+  92: Catch Super Garam Masala
+  93: Haldiram Bhujia Sev
+  94: Haldiram Khattai Meetha
+  95: Lays India Magic Masala
+path: C:/Users/RISHITH KUMAR M/OneDrive/Desktop/New folder (5)/backend/dataset
+train: images/train
+val: images/val

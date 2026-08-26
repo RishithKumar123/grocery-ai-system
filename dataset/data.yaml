@@ -1,0 +1,16 @@
+path: D:/GroceryAI/dataset
+train: images/train
+val: images/val
+test: images/test
+names:
+  0: patanjali_amla_murabba
+  1: patanjali_honey
+  2: patanjali_cow_ghee
+  3: patanjali_dant_kanti
+  4: patanjali_aloe_vera_gel
+  5: patanjali_wheat_atta
+  6: patanjali_rice
+  7: patanjali_moong_dal
+  8: patanjali_chana_dal
+  9: patanjali_soap
+nc: 10
