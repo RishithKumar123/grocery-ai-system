@@ -195,29 +195,34 @@ async def scan_inventory_image(
         img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
         img_h, img_w, _ = (img.shape if img is not None else (640, 640, 3))
 
-        # Multi-product proposal box extraction if <= 1 YOLO box was detected
-        if len(detections) <= 1:
+        # Multi-product proposal box extraction ONLY if 0 YOLO boxes were detected
+        if len(detections) == 0:
             from app.ai.container_detector import ContainerDetector
+            from app.ai.matching_engine import ProductMatchingEngine
             container_detector = ContainerDetector()
-            c_boxes = container_detector.detect_containers(file_bytes, conf_threshold=0.20, iou_threshold=0.70)
+            matching_engine = ProductMatchingEngine()
             
-            all_products = db.query(ProductModel).all()
+            c_boxes = container_detector.detect_containers(file_bytes, conf_threshold=0.20, iou_threshold=0.70)
             proposal_dets = []
             for idx, cb in enumerate(c_boxes):
-                p_match = all_products[idx % len(all_products)] if all_products else None
                 box_coords = cb.get("box", [10, 10, img_w - 10, img_h - 10])
-                if p_match:
+                x1_c, y1_c = max(0, int(box_coords[0])), max(0, int(box_coords[1]))
+                x2_c, y2_c = min(img_w, int(box_coords[2])), min(img_h, int(box_coords[3]))
+                crop = img[y1_c:y2_c, x1_c:x2_c] if img is not None else None
+                
+                p_res = matching_engine.match_product(crop, "", {}, None, db)
+                if p_res and p_res.get("product_id"):
                     proposal_dets.append({
-                        "product_id": p_match.id,
-                        "product_name": p_match.name,
-                        "sku": p_match.sku,
-                        "category": p_match.category,
-                        "brand": p_match.brand,
-                        "confidence": cb.get("confidence", 0.85),
+                        "product_id": p_res["product_id"],
+                        "product_name": p_res["name"],
+                        "sku": p_res.get("sku"),
+                        "category": "Grocery",
+                        "brand": p_res.get("brand"),
+                        "confidence": p_res.get("confidence_score", 0.85),
                         "box": box_coords,
                         "bounding_box": {"x1": box_coords[0], "y1": box_coords[1], "x2": box_coords[2], "y2": box_coords[3]},
                         "is_unknown": False,
-                        "barcode": p_match.barcode
+                        "barcode": None
                     })
             if proposal_dets:
                 detections = proposal_dets
