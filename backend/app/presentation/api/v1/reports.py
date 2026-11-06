@@ -15,6 +15,7 @@ from app.data.models.supplier_model import SupplierModel
 from app.data.models.brand_model import BrandModel
 from app.data.models.category_model import CategoryModel
 from app.data.models.stock_transaction_model import StockTransactionModel
+from app.data.models.ai_scan_model import AIScanModel, AIScanDetectionModel
 from app.domain.entities.user import User
 from app.presentation.api.v1.auth import get_current_user
 from pydantic import BaseModel

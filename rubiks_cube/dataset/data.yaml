@@ -1,0 +1,11 @@
+names:
+- white
+- yellow
+- red
+- orange
+- blue
+- green
+nc: 6
+path: D:\GroceryAI\rubiks_cube\dataset
+train: images/train
+val: images/val

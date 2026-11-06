@@ -28,6 +28,9 @@ backend/training/dataset/valid/
 backend/training/dataset/test/
 backend/local_storage/
 backend/runs/temp/
+*.cache
+runs/
+rubiks_cube/runs/
 
 # Large Model Binaries (> 100MB)
 *.pt

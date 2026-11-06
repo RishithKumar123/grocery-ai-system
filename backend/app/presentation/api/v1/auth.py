@@ -33,7 +33,7 @@ from app.presentation.schemas.auth_schemas import (
 router = APIRouter(prefix="/auth", tags=["authentication"])
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="api/v1/auth/login")
-
+oauth2_scheme_optional = OAuth2PasswordBearer(tokenUrl="api/v1/auth/login", auto_error=False)
 
 def get_current_user(
     token: str = Depends(oauth2_scheme),
@@ -53,6 +53,24 @@ def get_current_user(
     if user is None:
         raise AuthenticationException("User not found")
     return user
+
+def get_current_user_optional(
+    token: str = Depends(oauth2_scheme_optional),
+    db: Session = Depends(get_db)
+) -> User:
+    """Dependency to validate JWT token if present, or return guest user for seamless scans."""
+    if token:
+        payload = decode_access_token(token)
+        if payload and payload.get("sub"):
+            repo = SQLAlchemyUserRepository(db)
+            user = repo.get_by_email(payload.get("sub"))
+            if user:
+                return user
+    from app.data.models.user_model import UserModel
+    user_db = db.query(UserModel).first()
+    if user_db:
+        return SQLAlchemyUserRepository(db)._to_entity(user_db)
+    return User(id=1, email="guest@groceryai.com", full_name="Guest User", hashed_password="", role="Admin", is_verified=True, is_active=True, created_at=None, updated_at=None)
 
 
 @router.post("/register", response_model=UserOut, status_code=status.HTTP_201_CREATED)

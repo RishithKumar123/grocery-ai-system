@@ -234,11 +234,11 @@ class YoloV11InferenceEngine:
                             ocr_lines = ocr_reader.extract_text(crop)
                             if ocr_lines:
                                 joined_text = " ".join(ocr_lines).lower()
-                                from app.data.models.product_model import ProductModel
-                                catalog = self.db.query(ProductModel).filter(ProductModel.status == "active").all()
                                 for item in catalog:
                                     item_name_clean = item.name.lower()
-                                    if item_name_clean in joined_text or any(w in joined_text for w in item_name_clean.split() if len(w) > 3):
+                                    words = [w for w in item_name_clean.split() if len(w) > 3]
+                                    matching_words = [w for w in words if w in joined_text]
+                                    if item_name_clean in joined_text or (len(words) > 0 and len(matching_words) / len(words) >= 0.6):
                                         product_name = item.name
                                         product_id = item.id
                                         sku = item.sku
